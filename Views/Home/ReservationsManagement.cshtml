@@ -1,0 +1,29 @@
+﻿@model List<EHospital.Models.Appointment>
+
+@{
+    ViewData["Title"] = "Reservations Management";
+}
+
+<h1>Reservations Management</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Patient Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.PatientName</td>
+                <td>@item.StartTime.ToShortDateString()</td>
+                <td>@item.EndTime.AddMinutes(30).ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
